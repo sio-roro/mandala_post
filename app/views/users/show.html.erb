@@ -1,0 +1,143 @@
+<div class="user-show">
+  <div class="user-show-left">
+  
+      <div class="page-menu">
+        <div class="name-follow">
+            <h2><%=@user.username%></h2>
+            <% unless current_user == @user %>
+              <% if current_user.following?(@user) %>
+                <%=link_to "Unfollow", destroy_relationship_path(@user.id), class:"unfollow",method: :delete%>
+            <% else %>
+                <%=link_to "Follow", create_relationship_path(@user.id), class:"follow", method: :post%>
+              <% end %>
+            <% end %>
+          </div>
+        <p>フォロー中 <%=@followings.count%></p>
+        <p>フォロワー <%=@followers.count%></p>
+      </div>  
+      <%if @user.id===current_user.id%>
+      <ul class="tabnav">
+          <li class="tab">folloings </li>
+          <li class="tab is-active">My post </li>
+      </ul>
+      <%end%>
+  </div>   
+
+  <div class="user-show-right " >
+  <h2>follow中ユーザーの投稿</h2>
+  <%Post.where(user_id:@followings.ids).each do |t|%>
+    <div class="theme margin-20">
+      
+          <%=link_to mandala_new_path(t.id),class:"index-btn" do%>
+            <div class="right">
+            <span><i class="fas fa-plus"></i></i><%= t.mandalas.count%></span>
+            </div>
+          <%end%>
+      
+      <div class="left">
+        <h3>
+          <%=link_to users_show_path(t.user.id) do%>
+          <%=t.user.username%>
+          <%end%>
+        </h3>
+        <h4><%=t.theme%></h4> 
+        <h5><%=t.comment%></h5>
+        <div class="theme-list">
+          
+        
+        <%=link_to post_path(t.id) do%>
+          <i class="fas fa-search-plus">詳細</i>
+        <%end%>
+
+         
+         <div id="modal-destroy-<%=t.id%>" class="modal js-modal">
+            <div class="modal__bg js-modal-close">
+            </div>
+            <div class="modal__content">
+              <div class="modal-header">
+                <a class="js-modal-close" href="">　<i class="fas fa-times"></i> </a>
+              </div>
+              <div class="modal__menu">
+                <p>本当に削除してよいですか？</p>
+              </div>
+              <div class="expanded">
+                <%=t.theme%>
+              </div>
+              <div class="modal-btn-area">
+                <a class="js-modal-close close-btn" href="">close</a>
+                <%=link_to "削除",post_path(t.id),class:"destroy-btn",method: :delete %>
+              </div>  
+            </div>  
+         </div> 
+    
+        </div>
+      </div>
+      
+      </div>
+  <%end%>
+ </div>
+<div class="user-show-right is-show">
+<h2> My post</h2>
+<%Post.where(user_id:@user.id).each do |t|%>
+  <div class="theme margin-20">
+      
+          <%=link_to mandala_new_path(t.id),class:"index-btn" do%>
+            <div class="right">
+            <span><i class="fas fa-plus"></i></i><%= t.mandalas.count%></span>
+            </div>
+          <%end%>
+      
+      <div class="left">
+        <h3>
+          <%=link_to users_show_path(t.user.id) do%>
+          <%=t.user.username%>
+          <%end%>
+        </h3>
+        <h4><%=t.theme%></h4> 
+        <h5><%=t.comment%></h5>
+        <div class="theme-list">
+          
+        <%if t.post_id%>
+          <%=link_to edit_post_path(t.id) do%>
+            <i class="fas fa-comment"></i>
+          <%end%>
+
+        <%else%>
+          <%=link_to  edit_post_path(t.id) do%>
+           <i class="fas fa-edit"></i>
+          <%end%>
+        <%end%>
+        <%=link_to post_path(t.id) do%>
+          <i class="fas fa-search-plus"></i>
+        <%end%>
+
+         <a class="js-modal-open" href="" data-target="modal-destroy-<%=t.id%>"> <i class="fas fa-trash-alt"></i></a>
+         <div id="modal-destroy-<%=t.id%>" class="modal js-modal">
+            <div class="modal__bg js-modal-close">
+            </div>
+            <div class="modal__content">
+              <div class="modal-header">
+                <a class="js-modal-close" href="">　<i class="fas fa-times"></i> </a>
+              </div>
+              <div class="modal__menu">
+                <p>本当に削除してよいですか？</p>
+              </div>
+              <div class="expanded">
+                <%=t.theme%>
+              </div>
+              <div class="modal-btn-area">
+                <a class="js-modal-close close-btn" href="">close</a>
+                <%=link_to "削除",post_path(t.id),class:"destroy-btn",method: :delete %>
+              </div>  
+            </div>  
+         </div> 
+    
+        </div>
+      </div>
+      
+      </div>
+  <%end%>
+
+<%=%>
+</div>
+</div>      

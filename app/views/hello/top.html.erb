@@ -1,0 +1,190 @@
+<div class="top">
+  <div class="top1">
+    <div class="top1-logo">
+    <h1> MANDALA POST</h1>
+    </div>
+    <p>開放せよ、その思考</p>
+    </div>
+  </div>
+
+
+  <div class="top2">
+  
+  <div class="contaner">
+    <h1>EXPAND YOUR THOUGHTS <br><span>with MANDALA POST</span></h1>
+    <div class="about">
+      <div class="about-text text1">
+        <i class="fas fa-seedling"></i>
+        <div class="about-text-content">
+        <h3>気付きから始める</h3>
+        <p>”MADALA POST” はより具体的なアイディアを必要とする人へ送るツールです。あなたの日々の気付きから世界を巻き込む大きなエネルギーを生み出しましょう。 </p>
+        </div>
+      </div>
+      <div class="about-text text2">
+        <i class="fas fa-expand-arrows-alt"></i>
+        <div class="about-text-content">
+        <h3>アイディアを加速</h3>
+        <p>小さなアイデアや課題をシェアしてより具体的な考えや解決策をみんなで考えましょう。アイディアは具体的であればあるほど、力を持ちます。</p>
+        </div>
+      </div>
+      <div class="about-text text3">
+      　<i class="fas fa-running"></i>
+        <div class="about-text-content">
+        <h3>無限に拡大</h3>
+        <p>アイディアを出す時には実現難易度や費用対効果を気にする必要はありません。あなたの奇抜なアイディアも明日には世界の常識かもしれません。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>  
+  
+
+
+  
+  <div class="top3">
+    <div class="top3-area">
+      <div class="top3-text" >
+        <h3>マンダラート発想法とは</h3>
+        <p class="top3-text-1">通常のブレインストーミングと比較して、必ず<span>「8つ」</span>アイディアを出す必要があるため、より熟考が必要となる。</p>
+        <p class="top3-text-2">”マンダラートは、発想法の一種。紙などに9つのマスを用意し、それを埋めていくという作業ルールを設けることにより、アイデアを整理・外化し、思考を深めていくことができる。3×3の9マスを書き、その中心のマスに考えたいことを書き込み、周りのマスにはそれに関連する事柄を埋めていく。”<br>（Retrieved from "Wikipedia マンダラート"）</p>
+      </div>
+      <div class="top-mandala">
+        <div class="top-mandala-piece "></div>
+        <div class="top-mandala-piece "><i class="fas fa-arrow-up"></i></div>
+        <div class="top-mandala-piece "></div>
+        <div class="top-mandala-piece "><i class="fas fa-arrow-left"></i></div>
+        <div class="top-mandala-piece "><p>THEME!</p></div>
+        <div class="top-mandala-piece "><i class="fas fa-arrow-right"></i></div>
+        <div class="top-mandala-piece "></div>
+        <div class="top-mandala-piece "><i class="fas fa-arrow-down"></i></div>
+        <div class="top-mandala-piece "></div>
+      </div>
+    </div>
+   </div>
+
+    <%if user_signed_in?%>
+       <div class="top4">
+        <%=link_to posts_path, class:"top4-link" do%>
+          <div class="top4-left gray">
+          <h1>INDEX</h1>
+          </div>
+        <%end%>
+        <%=link_to new_post_path, class:"top4-link" do%>
+          <div class="top4-right gray">
+            <h1>NEW POST</h1>
+           
+          </div>
+        <%end%>
+      </div>
+    <%else%>
+      <div class="top4">
+        <%=link_to new_user_session_path, class:"top4-link" do%>
+          <div class="top4-left gray">
+          <h1>LOG IN</h1>
+          　<p><i class="fas fa-arrow-right"></i>アカウントをお持ちの方</p>
+          </div>
+        <%end%>
+        <%=link_to new_user_registration_path, class:"top4-link" do%>
+          <div class="top4-right gray">
+            <h1>SIGN IN</h1>
+            <p><i class="fas fa-arrow-right"></i>新規登録</p>
+          </div>
+        <%end%>
+      </div>
+    <%end%>
+
+    <div class="top5">
+      <div class="top5-contaner">
+        <h1>HOW TO USE?</h1>
+        <div class="top5-area">
+          <div class="top5-text-area">
+            <div class="top5-text">
+              <h2>1</h2>
+              <p>普段のちょっとした悩みや課題を投稿します。恥ずかしがる必要はありません。悩みの一つや二つ誰にでもあるものです。</p>
+            </div>
+            <div class="top5-font">
+            <i class="fas fa-user-edit"></i>
+            <div class="balloon1-top">
+            <p>I want to improve my Emglish skill!</p>
+            </div>
+            </div>
+          </div>
+          
+          <div class="top5-text-area">
+            <div class="top5-text">
+              <h2>2</h2>
+              <p>みんなが解決策の描かれたマンダラを作ってくれます。思いもよらなかった。アイデアに出会えるかも。</p>
+            </div>
+            <div class="top5-font">
+              <div class="top5-mandala">
+                <div class="top5-mandala-piece"> friend</div>
+                <div class="top5-mandala-piece"> school </div>
+                <div class="top5-mandala-piece"> vocabulary</div>
+                <div class="top5-mandala-piece"> listening</div>
+                <div class="top5-mandala-piece"> <span>English</span></div>
+                <div class="top5-mandala-piece">music</div>
+                <div class="top5-mandala-piece">trip</div>
+                <div class="top5-mandala-piece">movies</div>
+                <div class="top5-mandala-piece">news paper</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="top5-text-area">
+            <div class="top5-text">
+              <h2>３</h2>
+              <p>あなたが「いいね」と思ったアイデアは拡張してさらにアイデアを深めることができます。人類史上初の発見があるかも。</p>
+            </div>
+            <div class="top5-font">
+            <i class="fas fa-share-square"></i>
+            <div class="balloon1-top">
+            <p>i like it. Expand!</p>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="top6">
+      <div class="top6-left">
+        <div class="top6-left-content">
+        <h1>Let's start!</h1>
+        <div class="link-area">
+        <div class="link-area-1">
+         <p><i class="fas fa-arrow-right"></i></p>
+          <%if user_signed_in?%>
+             <%=link_to posts_path, class:"btn" do%>
+              <span>INDEX</span><span>Click</span>
+             <%end%> 
+          <%else%>
+            <%=link_to new_user_session_path, class:"btn" do%>
+            <span>LOG IN</span><span>Click</span>
+            <%end%>
+          <%end%>  
+        </div>
+        <div class="link-area-1">
+          <p><i class="fas fa-arrow-right"></i></p>
+            <%if user_signed_in?%>
+             <%=link_to new_post_path, class:"btn" do%>
+              <span>新規投稿</span><span>Click</span>
+             <%end%> 
+            <%else%>
+              <%=link_to new_user_registration_path, class:"btn" do%>
+                <span>SIGN IN</span><span>Click</span>
+              <%end%>
+            <%end%>
+        </div>  
+        </div>
+        </div>
+      </div>
+      <div class="top6-right">
+        <h3> Eplore new world・・・・・</h3>
+      </div>
+    </div>
+    <div class="top7">
+      
+    </div>
+</div> 

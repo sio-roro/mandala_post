@@ -1,0 +1,112 @@
+// Place all the styles related to the mandalas controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.new-mandala{
+  background-image: url(/mandala-top.jpg);
+  background-size: cover;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.new-mandala-header{
+  margin-left: 20px;
+  display: flex;
+  align-items: flex-start;
+  align-items: center;
+  margin-top: 30px;
+}
+.new-mandala-content{
+  width:80%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.8);
+  overflow: scroll;
+  
+}
+.new-mandala-content h1{
+  color:whitesmoke;
+  border-bottom: 2px solid #ffc107;
+}
+.new-mandala-content i{
+  padding: 0 5px 0 5px;
+  font-size: 20px;
+}
+.new-mandala-content span{
+  color:#ff5722;
+}
+.new-mandala-content p{
+  color:#ffc107;
+}
+.new-mandala-form{
+  width:100%;
+  height: 700px;
+  
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+}
+.new-mandala-input{
+  width: 40%;
+  height: 500px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  flex-direction: column;
+  
+}
+.new-mandala-input p{
+  margin-top: 10px;
+  color:#ffc107;
+  font-size: 20px;
+
+}
+.new-mandala-input input{
+  border-radius: 3px;
+  
+}
+
+.new-mandala-input input[type="submit"]{
+  background-color: #ffc107;
+  padding: 20px;
+  margin-top: 20px;
+  border:2px solid #626262;
+  border-radius: 5px;
+  color:black;
+  opacity: 0.8;
+  font-size: 15px;
+}
+.text-box input{
+  font-size: 20px;
+  height: 25px;
+}
+.new-mandala-input input[type="submit"]:hover{
+  opacity: 1;
+  transition: all .5s;
+  border:2px solid #00bfff;
+}
+.new-mandala-chart{
+  
+  width:60%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.chart-mandala{
+  display: grid;
+  grid-template-columns: 150px 150px 150px;
+  grid-template-rows: 150px 150px 150px;
+  margin-top: 20px;
+}
+.chart-mandala-piece{
+  border-radius: 10px;
+  text-decoration: none;
+  color: whitesmoke;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ffc107;
+}

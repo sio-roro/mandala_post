@@ -1,0 +1,129 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.user-show{
+  
+  background-image: url(/mandala-top.jpg);
+  background-size: cover;
+  height:100%;
+  display: flex;
+
+}
+.user-show-left{
+  height: 100%;
+  width: 30%;
+  background-color:#808080;
+}
+.page-menu{
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.name-follow{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+.name-follow h2{
+ color:#ffc107;
+}
+.unfollow{
+  
+  margin-left: 15px;
+  text-decoration: none;
+  padding: 10px;
+  border: 2px solid #ff5722;
+  font-size: 18px;
+  border-radius: 5px;
+  color: #ff5722;
+  opacity: 0.7;
+}
+.unfollow:hover{
+  opacity: 1;
+}
+.follow{
+  margin-left: 15px;
+  text-decoration: none;
+  padding: 15px;
+  background-color: #ff5722;
+  font-size: 18px;
+  border-radius: 5px;
+  color: #808080;
+  opacity: 0.7;
+}
+.follow:hover{
+opacity: 1;
+}
+.tabnav{
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+
+.tab{
+  filter: drop-shadow(10px 10px 10px rgba(0,0,0,0.6));
+  margin: 5px;
+  border: 2px solid #ffc107;
+  border-radius: 5px;
+  padding: 20px;
+  color:#ffc107;
+  opacity: 0.7;
+}
+.tab:hover{
+  
+  opacity: 1;
+}
+.tab.is-active{
+  
+  border: 2px solid #ff5722;
+  background-color: #ff5722;
+  color: #808080;
+}
+.margin-20{
+  margin-left: 30px;
+}
+
+.user-show-right.is-show{
+  display: block;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+}
+.user-show-right{
+  display: none;
+  width: 60%;
+  height: 100%;
+  overflow: scroll;
+  background-color: rgba(0,0,0,0.7);
+}
+.user-show-right h2{
+  
+  font-size: 30px;
+  color:#ffc107;
+  margin:20px 0 10px 10px ;
+  
+  
+  
+}
+.left h3{
+  font-size: 20px;
+
+}
+.left h3 a{
+text-decoration: none ;
+color:#ff5722;
+opacity: 0.7;
+}
+.left h3 a:hover{
+  opacity:1;
+}
+
+.active{
+  display: block;
+}

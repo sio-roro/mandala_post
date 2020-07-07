@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MandalaApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.1/css/all.css">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <%if flash[:notice]%>
+      <div class="flash">
+      <%= flash[:notice]%>
+      </div>
+  <%end%>
+  <header>
+
+  <%if user_signed_in?%>
+    <div class="header-username">
+      <%=link_to users_show_path(current_user.id) do%>
+      <%=current_user.username%>
+      <%end%>
+    </div>
+    <div class="header-list">
+      <%=link_to "TOP",root_path %>
+      <%=link_to "INDEX",posts_path%>
+      <%=link_to "NewTheme",new_post_path%>
+      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+    </div>
+  <%else%>
+  <%=link_to "TOP",root_path %>
+  <div class="header-list">
+    <%=link_to "SIGHN_IN", new_user_registration_path%>
+    <%=link_to "LOGIN", new_user_session_path%>
+    </div>
+  <%end%>
+  
+
+
+  </header>
+    <%= yield %>
+  </body>
+</html>

@@ -1,0 +1,79 @@
+<div class="new-mandala">
+  <div class="new-mandala-content">
+    <div class="new-mandala-header">
+    <%=link_to post_path(@post.id) ,class:"back-to-index" do %>
+        <p><i class="fas fa-undo-alt"></i>詳細に戻る</p>
+    <%end%>    
+    </div>
+    <h1>new mandala! <span><%=current_user.username%></span><i class="fas fa-arrow-right"></i><span><%=@post.user.username%></span></h1>
+    <p>※全ての枠を産めなければ投稿できません！！！！</p>
+          <%@mandala.errors.full_messages.each do |m|%>
+            <div class="error">
+              <%= m %>
+            </div>
+          <%end%>
+    
+    
+    <%=form_for @mandala,url:mandala_path(@post.id) do |f|%>
+    <div class="new-mandala-form">
+      <div class="new-mandala-input">
+        <div class="input-area1 text-box" >
+          <p>1</p>
+          <%= f.text_field :one,id:"input1" %>
+        </div>
+        <div class="input-area2 text-box" >
+          <p>2</p>
+          <%= f.text_field :two,id:"input2"%>
+        </div>
+        <div class="input-area3 text-box" >
+          <p>3</p>
+          <%= f.text_field :three,id:"input3" %>
+        </div>
+        <div class="input-area4 text-box" >
+          <p>4</p>
+          <%= f.text_field :four,id:"input4" %>
+        </div>
+        <div class="input-area5 text-box" >
+          <p>5</p>
+          <%= f.text_field :five,id:"input5" %>
+        </div>
+        <div class="input-area6 text-box" >
+          <p>6</p>
+          <%= f.text_field :six,id:"input6" %>
+        </div>
+        <div class="input-area7 text-box" >
+          <p>7</p>
+          <%= f.text_field :seven,id:"input7" %>
+        </div>
+        <div class="input-area8 text-box" >
+          <p>8</p>
+          <%= f.text_field :eight,id:"input8" %>
+        </div>
+       
+          <%= f.submit "投稿する" %>
+          
+        
+        
+
+        
+      </div>
+
+      <div class="new-mandala-chart">
+        <div class="chart-mandala">
+          <div class="chart-mandala-piece"><div id="idea1"></div></div>
+          <div class="chart-mandala-piece"><div id="idea2"></div></div>
+          <div class="chart-mandala-piece"><div id="idea3"></div></div>
+          <div class="chart-mandala-piece"><div id="idea4"></div></div>
+          <div class="chart-mandala-piece center"><%=@post.theme%></div>
+          <div class="chart-mandala-piece"><div id="idea5"></div></div>
+          <div class="chart-mandala-piece"><div id="idea6"></div></div>
+          <div class="chart-mandala-piece"><div id="idea7"></div></div>
+          <div class="chart-mandala-piece"><div id="idea8"></div></div>
+        </div>
+      </div>
+      
+    </div>  
+    <% end %>
+    
+  </div>
+</div>

@@ -1,0 +1,609 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+*{
+  font-family: "Montserrat","游ゴシック",YuGothic,"ヒラギノ角ゴ ProN W3","Hiragino Kaku Gothic ProN","メイリオ",Meiryo,sans-serif;
+  margin:0;
+  padding:0;
+}
+body{
+  position: relative;
+  height: 100%;
+}
+
+html{
+  height: 100%;
+}
+.flash{
+  width:100%;
+  background-color: #ff9800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height:40px;
+  color: black;
+}
+.error{
+  color:#ff5722;
+}
+ul {
+  list-style: none;
+}
+/* header--------------------------- */
+header{
+  
+  width:100%;
+  height: 50px;
+  line-height: 50px;
+  position: fixed;
+}
+header a{
+  padding: 20px;
+  text-decoration: none;
+  color:white;
+  border-bottom: 1px solid transparent;
+}
+header a:hover{
+  color:black;
+  background-color: #ff5722;
+  transition: all 0.5s;
+  border-bottom: 3px solid #ffc107;
+}
+.header-username{
+  color: #ffd100;
+  display: inline;
+}
+.header-list{
+  float: right;
+  
+}
+/* top------------------------- */
+.top1{
+  
+  background-image: url(/mandala-top.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  height: 800px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.top1 h1{
+  border-bottom: 2px solid black;
+ color: black;
+}
+.top1-logo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: auto;
+}
+/* top2--------------------------------------- */
+.top2{
+  
+  background-color:black;
+  text-align: center;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  overflow:scroll;
+}
+.top2 h1{
+ color:white;
+}
+.top2 h1 span{
+  font-size: 20px;
+  color: #626262;
+}
+.about{
+ display: flex;
+ flex-direction: row;
+ align-items: flex-start;
+ justify-content: center;
+ width: 80%;
+ margin: auto ;
+}
+
+.about-text{
+  width: 35%;
+  height:300px;
+  margin: 30px;
+  
+}
+.text1{
+  color:#ff9800;
+  border-left:2px solid #ff9800;
+  border-right:2px solid #ff9800 ;
+}
+.text2{
+  color:#ffc107;
+  border-left:2px solid #ffc107 ;
+  border-right:2px solid #ffc107 ;
+}
+.text3{
+  color: #ff5722;
+  border-left:2px solid #ff5722 ;
+  border-right:2px solid #ff5722 ;
+}
+.about-text i{
+  font-size: 50px;
+}
+.about-text-content{
+  margin-top: 30px;
+  padding:5px 10px ;
+}
+/* top3------------------------------------------------ */
+.top3{
+ 
+  background-image: url(/mandala-top.jpg);
+  background-size: cover;
+  height: 600px;
+  background-attachment: fixed;
+}
+.top3-area{
+  background-color: rgba(0, 0, 0, 0.7);
+  height: 600px;
+  width:100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+.top3-text{
+  width:50%;
+}
+
+.top3-text h3{
+  font-size: 20px;
+  color:white;
+  border-left:5px solid #ff5722;
+  padding: 10px;;
+}
+.top3-text-1{
+  font-size: large;
+  color:white;
+  margin: 20px;
+}
+.top3-text-1 span{
+  color: #ff5722;
+}
+.top3-text-2{
+  margin: 30px;
+  font-size: small;
+  color:gainsboro;
+}
+
+.top-mandala{
+  z-index: 11;
+  margin-left: 20px;
+  display: grid;
+  grid-template-columns: 100px 100px 100px;
+  grid-template-rows: 100px 100px 100px;
+  
+}
+.top-mandala-piece{
+  border-radius: 10px;
+  border:2px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+.top-mandala-piece i{
+  color: #ff9800;
+  font-size: 30px;
+}
+.top-mandala-piece p{
+  color:white;
+  font-size: 15px;
+}
+/* top4---------------------------------------- */
+.top4{
+  
+  height: 300px;
+  width: 100%;
+  background-color: #ff5722;
+  display: flex;
+  flex-direction: row;
+}
+.top4-link{
+  width: 100%;
+  text-decoration: none;
+}
+.top4-left{
+  background-image: url(/mandala-top4-left.jpeg);
+  background-size: cover;
+  height: 300px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.top4-right{
+  background-image: url(/mandala-top4-right.jpeg);
+  background-size: cover;
+  height: 300px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.gray{
+  
+  font-size: 20px;
+  color:white;
+  -webkit-filter: grayscale(100%);
+-moz-filter: grayscale(100%);
+-ms-filter: grayscale(100%);
+-o-filter: grayscale(100%);
+filter: grayscale(100%);
+}
+
+.gray:hover {
+  font-size: 30px;
+  color:#ffc107;
+  -webkit-filter: grayscale(0);
+  -moz-filter: grayscale(0);
+  -ms-filter: grayscale(0);
+  -o-filter: grayscale(0);
+  filter: grayscale(0);
+  transition: all 0.5s;
+  }
+
+
+  /* top5------------------- */
+  .top5{
+    z-index: 10;
+    width: 100%;
+    height:600px;
+    background-color: #ff5722;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: scroll;
+  }
+.top5-contaner{
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  }
+  .top5-contaner h1{
+    padding-left: 10px;
+    border-left:10px solid black ;
+    color:black
+  }
+  .top5-area{
+    padding: 10px;
+    border: 2px solid black;
+    margin-top: 20px;
+    width: 80%;
+    display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: row;
+  }
+  .top5-area h2{
+    color: white;
+  }
+
+  .top5-text-area{
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  }
+  .top5-text{
+    width: 80%;
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  }
+  .top5-text p{
+    color: #626262;
+    margin-top: 10px;
+  }
+  .top5-font{
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .top5-font i{
+    font-size: 50px;
+    margin-top: 20px;
+  }
+  .balloon1-top {
+    position: relative;
+    display: inline-block;
+    margin: 1.5em 0;
+    padding: 7px 10px;
+    min-width: 120px;
+    max-width: 100%;
+    color: white;
+    font-size: 16px;
+    background: black;
+  }
+  
+  .balloon1-top:before {
+    content: "";
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    margin-left: -15px;
+    border: 15px solid transparent;
+    border-bottom: 15px solid black;
+  }
+  
+  .balloon1-top p {
+    margin: 0;
+    padding: 0;
+  }
+  .top5-mandala{
+    
+    display: grid;
+  grid-template-columns: 60px 60px 60px;
+  grid-template-rows: 60px 60px 60px;
+  }
+  .top5-mandala-piece{
+    border: 1px solid black;
+    font-size: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .top5-mandala-piece span{
+    color:white;
+  }
+/* top6--------------------------------------- */
+  .top6{
+    
+    height: 500px;
+    background-image: url(../mandala-top.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+
+  }
+  .top6-left{
+   background-attachment: fixed;
+    overflow: hidden;
+    height: 500px;
+    width:50%;
+    background-color: rgba(0,0,0,0.7);
+    transform: skewX(20deg);
+    transform-origin: bottom right;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .top6-left h1{
+    font-size: 50px;
+    color: transparent;
+    -webkit-text-stroke: 2px #ff5722;
+    
+  }
+  .top6-left-content{
+    width: 70%;
+    
+    transform: skewX(-20deg);
+    margin-left: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+  }
+ 
+  .link-area-1{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+  }
+  .link-area-1 p{
+    font-size: 50px;
+    margin: 10px;
+    color: transparent;
+    -webkit-text-stroke: 2px #ff9800;
+  }
+  .top6-right{
+    font-size: 40px;
+    height: 500px;
+    width:50%;
+    background-color: transparent;
+    display: flex;
+    align-items: flex-end;
+    align-items: flex-end;
+  }
+
+  .btn {
+    display: inline-block;           /* 改行なしのブロック要素 */
+    position: relative;              /* 相対位置指定 */
+    width: 100px;                    /* 横幅 */
+    height: 70px;                    /* 高さ */
+    text-align: center;              /* 水平方向は中央揃え */
+    line-height: 70px;               /* 行の高さ */
+  }
+  .btn span {
+    display: block;                  /* ブロック要素 */
+    position: absolute;              /* 親要素の左上を基準位置 */
+    width: 100%;                     /* 横幅 */
+    height: 100%;                    /* 高さ */
+    border: 3px solid #ff5722;          /* 罫線 */
+    transform-style: preserve-3d;    /* 重なりを3Dで表示 */
+    transition: 0.5s;   /* 変化時間 */
+  }
+  .btn span:nth-child(1) {
+    background-color: transparent;   /* Buttonボタンの色 */
+    color: white;          /* Buttonの文字の色 */
+    transform: rotateX(0deg);        /* 横軸の回転なし */
+    transform-origin: 0 50%  -30px;  /* transformの起点 */
+  }
+  .btn span:nth-child(2) {
+    background-color: #ffc107;   /* Clickボタンの色 */
+    color: black;          /* Clickの文字の色 */
+    transform: rotateX(90deg);       /* 横軸で90度回転 */
+    transform-origin: 0 50%  -30px;  /* transformの起点 */
+  }
+  .btn:hover span:nth-child(1) {
+    transform: rotateX(-90deg);      /* 横軸で前方に90度回転 */
+  }
+  .btn:hover span:nth-child(2) {
+    transform: rotateX(0deg);        /* 横軸の回転なし */
+  }
+  /* top7-------------  */
+  .top7{
+    width: 100%;
+    height: 300px;
+    background-color: #626262;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+  }
+ 
+
+  /*sign_in  */
+  .sign_in{
+    background-image: url(/mandala-top.jpg);
+    background-size: cover;
+    widows: 100%;
+    height:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .sign_in h2{
+     color:whitesmoke;
+     border-bottom: 2px solid #ff5722;
+  }
+  .sign_in-content{
+    width: 30%;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 2px solid #626262;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .field{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .field input{
+    font-size: 20px;
+    border-radius: 3px;
+  }
+  .form-label{
+    color:whitesmoke;
+  }
+  .actions{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+  }
+  .actions i{
+    color:whitesmoke;
+    padding-right: 10px;
+    font-size: 20px;
+  }
+  .actions input[type="submit"]{
+    background-color: #ffc107;
+    padding: 20px;
+    
+    border:2px solid #626262;
+    border-radius: 5px;
+    color:black;
+    opacity: 0.8;
+    font-size: 15px;
+  }
+  .actions input[type="submit"]:hover{
+    opacity: 1;
+    transition:all .5s;
+    border:2px solid #00bfff;
+  }
+  .user-link{
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+  .to-login{
+    text-decoration: none;
+    color:#cdcdcd;
+    
+    background-color: transparent;
+    opacity: 0.8;
+    border-bottom: 1px solid transparent;
+  }
+  .to-login:hover{
+    opacity: 1;
+    border-bottom: 1px solid#cdcdcd;
+    transition: all 0.5;
+  }
+
+ .manndala {
+  
+  display: grid;
+  grid-template-columns: 100px 100px 100px;
+  grid-template-rows: 100px 100px 100px;
+  margin-top: 20px;
+}
+.mandala-piece{
+  border-radius: 10px;
+  text-decoration: none;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ffc107;
+  
+}
+.center{
+  color:#ff5722
+}
+
+.mandala-piece a{
+  text-decoration: none;
+  color:white;
+}
+.already-expand:hover{
+  color:#00bfff;
+  transition: all  .5s;
+}
+

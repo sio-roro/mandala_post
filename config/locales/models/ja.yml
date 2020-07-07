@@ -1,0 +1,18 @@
+ja:
+  activerecord:
+    models:
+      post: 投稿
+      mandala: マンダラ
+    attributes:
+      post:
+        theme: マンダラのテーマ
+        comment: コメント
+      mandala:
+        one: 1つ目の枠
+        two: 2つ目の枠
+        three: 3つ目の枠
+        four: 4つ目の枠
+        five: 5つ目の枠
+        six: 6つ目の枠
+        seven: 7つ目の枠
+        eight:  8つ目の枠 

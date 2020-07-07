@@ -1,0 +1,78 @@
+
+
+
+<div class="index">
+  <div class="index-area">
+  <h1> SEARCH THEME</h1>
+    <div class="index-content">
+    <div class="new-user-link">
+      <%=link_to new_post_path,class:"back-to-index" do%>
+        <p><i class="fas fa-plus"></i>新規投稿</p>
+      <%end%>
+    </div>
+    <%@posts.each do|t|%>
+      <div class="theme">
+      
+          <%=link_to mandala_new_path(t.id),class:"index-btn" do%>
+            <div class="right">
+            <span><i class="fas fa-plus"></i></i><%= t.mandalas.count%></span>
+            </div>
+          <%end%>
+      
+      <div class="left">
+        <h3>
+        <%=link_to users_show_path(t.user.id) do%>
+      <%=t.user.username%>
+      <%end%>
+        
+        
+        </h3>
+        <h4><%=t.theme%></h4>
+        <h5><%=t.comment%></h5>
+        <div class="theme-list">
+          <%if current_user.id===t.user_id%>
+                <a class="js-modal-open" href="" data-target="modal-destroy-<%=t.id%>"> <i class="fas fa-trash-alt">削除</i></a>
+              <div id="modal-destroy-<%=t.id%>" class="modal js-modal">
+                  <div class="modal__bg js-modal-close">
+                 </div>
+                 <div class="modal__content">
+                   <div class="modal-header">
+                     <a class="js-modal-close" href="">　<i class="fas fa-times"></i> </a>
+                   </div>
+                   <div class="modal__menu">
+                     <p>本当に削除してよいですか？</p>
+                   </div>
+                   <div class="expanded">
+                     <%=t.theme%>
+                   </div>
+                   <div class="modal-btn-area">
+                     <a class="js-modal-close close-btn" href="">close</a>
+                     <%=link_to "削除",post_path(t.id),class:"destroy-btn",method: :delete %>
+                   </div>  
+                 </div>  
+              </div> 
+              <%if t.post_id%>
+                <%=link_to edit_post_path(t.id) do%>
+                  <i class="fas fa-comment">編集</i>
+                <%end%>
+
+              <%else%>
+                <%=link_to  edit_post_path(t.id) do%>
+                 <i class="fas fa-edit">編集</i>
+                <%end%>
+              <%end%>
+            <%end%>
+        <%=link_to post_path(t.id) do%>
+          <i class="fas fa-search-plus">詳細</i>
+        <%end%>
+
+         
+    
+        </div>
+      </div>
+      
+      </div>
+    <%end%>
+    </div>
+  </div>
+</div>

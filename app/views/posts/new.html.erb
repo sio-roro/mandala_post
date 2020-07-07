@@ -1,0 +1,29 @@
+<div class="sign_in">
+  <div class="new-post-content">
+    <div class="new-user-link">
+      <%=link_to posts_path,class:"back-to-index" do%>
+        <p><i class="fas fa-undo-alt"></i>一覧に戻る</p>
+      <%end%>
+    </div>
+    <div class="new-post-area ">
+      <h1>NEW</h1>
+      
+      <%@post.errors.full_messages.each do |m|%>
+        <div class="error">
+          <%= m %>
+        </div>
+      <%end%>
+      <%= form_for @post do |f| %>
+        <div class="field">
+          <%= f.text_field :theme , :size=>50,:placeholder => "マンダラのテーマ"%>
+        </div>  
+        <div class="field">
+          <%= f.text_field :comment , :size=>50,  :placeholder => "テーマの詳細"%>
+        </div>
+        <div class="new-actions">
+          <i class="fas fa-arrow-right"></i><%= f.submit "投稿する" %>
+        </div>
+      <% end %>
+    </div>  
+  </div>
+</div>

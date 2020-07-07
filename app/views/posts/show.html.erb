@@ -1,0 +1,487 @@
+<div class="show">
+<div class="show-area">
+  <div class="show-link">
+    <div class="new-user-link">
+      <%=link_to posts_path,class:"back-to-index" do%>
+        <p><i class="fas fa-undo-alt"></i>一覧に戻る</p>
+      <%end%>
+    </div>
+  </div>
+  <div class="show-header">
+    <h3>投稿詳細</h3>
+    
+  </div>
+  <div class="theme"> 
+       
+      
+        <%=link_to mandala_new_path(@post.id),class:"index-btn" do%>
+            <div class="right">
+            <span><i class="fas fa-plus"></i></i><%= @post.mandalas.count%></span>
+            </div>
+          <%end%>
+       
+    
+    <div class="show-expand-right">
+    <%=link_to users_show_path(@post.user.id) do%>
+          <h3><%=@post.user.username%></h3>
+          <%end%>
+    
+    <div class="theme-expand">
+      <h4><%=@post.theme%></h4>
+      <%=link_to mandala_new_path(@post.id),class:"back-to-index" do%>
+        <p><i class="fas fa-plus"></i>マンダラを作る</p>
+      <%end%>
+    </div>
+    
+    <h5><%=@post.comment%></h5>
+        <div class="show-list">
+          <%if @post.post_id%>
+            <%@father=Post.find_by(id:@post.post_id)%>
+            <%=link_to post_path(@father.id) do%>
+              EXPNDED BY　[ <%=@father.theme%> ]
+            <%end%>
+          <%end%>
+          <div class="show-list-right">
+          <%if current_user.id===@post.user_id%>
+            <%if @post.post_id%>
+              <%=link_to edit_post_path(@post.id) do%>
+                <i class="fas fa-comment"></i>
+              <%end%>
+            <%else%>
+              <%=link_to  edit_post_path(@post.id) do%>
+                <i class="fas fa-edit"></i>
+              <%end%>
+            <%end%>
+            <a class="js-modal-open" href="" data-target="modal-destroy-<%=@post.id%>"> <i class="fas fa-trash-alt"></i></a>
+          <%end%>  
+         <div id="modal-destroy-<%=@post.id%>" class="modal js-modal">
+            <div class="modal__bg js-modal-close">
+            </div>
+            <div class="modal__content">
+              <div class="modal-header">
+                <a class="js-modal-close" href="">　<i class="fas fa-times"></i> </a>
+              </div>
+              <div class="modal__menu">
+                <p>本当に削除してよいですか？</p>
+              </div>
+              <div class="expanded">
+                <%=@post.theme%>
+              </div>
+              <div class="modal-btn-area">
+                <a class="js-modal-close close-btn" href="">close</a>
+                <%=link_to "削除",post_path(@post.id),class:"destroy-btn",method: :delete %>
+              </div>  
+            </div>  
+         </div> 
+          </div>
+        </div>
+      </div>
+  </div>
+
+
+<div class="show-mandala-area">
+<%@mandalas.each do |m|%>
+<div class="mandala-set">
+<div class="mandala-set-name"><%=m.user.username%>   <span><i class="fas fa-arrow-right"></i><%=@post.user.username%></span></div>
+<div class="manndala">
+  
+
+
+
+  <%if Post.find_by(theme:m.one,post_id:@post.id)%>
+    <%child=Post.find_by(theme:m.one,post_id:@post.id)%>
+    <%=link_to post_path(child.id),class:"mandala-piece aleady-expand" do %>
+      
+        <%=m.one%>
+      
+    <%end%>
+    
+  <%else%>
+    <%if current_user.id == @post.user_id%>
+       
+         <a class="js-modal-open mandala-piece to-expand" href="" data-target="modal1-<%=m.id%>"><%=m.one%></a>
+        
+        <div id="modal1-<%=m.id%>" class="modal js-modal">
+          <div class="modal__bg js-modal-close">
+          </div>
+          <div class="modal__content">
+            <div class="modal-header">
+              <a class="js-modal-close" href="">　<i class="fas fa-times"></i> </a>
+            </div>
+            <div class="modal__menu">
+              <p>このアイデアを拡張しますか？</p>
+            </div>
+            <div class="expanded">
+              <%=m.one%>
+            </div>
+            <div class="modal-btn-area">
+              <a class="js-modal-close close-btn" href="">close</a>
+              <%=link_to "EXPAND!",mandala_expand_path(@post.id,m.one),class:"expand-btn", method: :post %>
+            </div>  
+            
+            
+          </div>
+        </div>
+    <%else%>  
+      <div class="mandala-piece cannot-expand">  
+      <%=m.one%>
+      </div>
+    <%end%>  
+  <%end%>
+
+
+
+  <%if Post.find_by(theme:m.two,post_id:@post.id)%>
+    <%child=Post.find_by(theme:m.two,post_id:@post.id)%>
+    <%=link_to post_path(child.id),class:"mandala-piece aleady-expand" do%>
+      
+        <%=m.two%>
+      
+    <%end%>
+   
+  <%else%>
+    <%if current_user.id == @post.user_id%>  
+       
+         <a class="js-modal-open mandala-piece to-expand" href="" data-target="modal2-<%=m.id%>"><%=m.two%></a>
+        
+         <div id="modal2-<%=m.id%>" class="modal js-modal">
+          <div class="modal__bg js-modal-close">
+          </div>
+          <div class="modal__content">
+            <div class="modal-header">
+              <a class="js-modal-close" href="">　<i class="fas fa-times"></i> </a>
+            </div>
+            <div class="modal__menu">
+              <p>このアイデアを拡張しますか？</p>
+            </div>
+            <div class="expanded">
+              <%=m.two%>
+            </div>
+            <div class="modal-btn-area">
+              <a class="js-modal-close close-btn" href="">close</a>
+              <%=link_to "EXPAND!",mandala_expand_path(@post.id,m.two),class:"expand-btn", method: :post %>
+            </div>  
+            
+            
+          </div>
+        </div>
+    <%else%>    
+    <div class="mandala-piece cannot-expand">
+      <%=m.two%>
+    </div>  
+    <%end%>  
+  <%end%>
+
+
+
+
+  <%if Post.find_by(theme:m.three,post_id:@post.id)%>
+    <%child=Post.find_by(theme:m.three,post_id:@post.id)%>
+    <%=link_to post_path(child.id),class:"mandala-piece aleady-expand" do%>
+    
+     <%=m.three%>
+   
+    <%end%>
+    
+  <%else%>
+    <%if current_user.id == @post.user_id%>  
+        
+         <a class="js-modal-open mandala-piece to-expand" href="" data-target="modal3-<%=m.id%>"><%=m.three%></a>
+        
+         <div id="modal3-<%=m.id%>" class="modal js-modal">
+          <div class="modal__bg js-modal-close">
+          </div>
+          <div class="modal__content">
+            <div class="modal-header">
+              <a class="js-modal-close" href="">　<i class="fas fa-times"></i> </a>
+            </div>
+            <div class="modal__menu">
+              <p>このアイデアを拡張しますか？</p>
+            </div>
+            <div class="expanded">
+              <%=m.three%>
+            </div>
+            <div class="modal-btn-area">
+              <a class="js-modal-close close-btn" href="">close</a>
+              <%=link_to "EXPAND!",mandala_expand_path(@post.id,m.three),class:"expand-btn", method: :post %>
+            </div>  
+            
+            
+          </div>
+        </div>
+    <%else%>    
+    <div class="mandala-piece cannot-expand">
+      <%=m.three%>
+    </div>  
+    <%end%>  
+  <%end%>
+
+
+
+
+  <%if Post.find_by(theme:m.four,post_id:@post.id)%>
+    <%child=Post.find_by(theme:m.four,post_id:@post.id)%>
+    <%=link_to post_path(child.id),class:"mandala-piece aleady-expand" do%>
+      
+       <%=m.four%>
+     
+    <%end%>
+   
+  <%else%>
+    <%if current_user.id == @post.user_id%>  
+        
+         <a class="js-modal-open mandala-piece to-expand" href="" data-target="modal4-<%=m.id%>"><%=m.four%></a>
+        
+       <div id="modal4-<%=m.id%>" class="modal js-modal">
+          <div class="modal__bg js-modal-close">
+          </div>
+          <div class="modal__content">
+            <div class="modal-header">
+              <a class="js-modal-close" href="">　<i class="fas fa-times"></i> </a>
+            </div>
+            <div class="modal__menu">
+              <p>このアイデアを拡張しますか？</p>
+            </div>
+            <div class="expanded">
+              <%=m.four%>
+            </div>
+            <div class="modal-btn-area">
+              <a class="js-modal-close close-btn" href="">close</a>
+              <%=link_to "EXPAND!",mandala_expand_path(@post.id,m.four),class:"expand-btn", method: :post %>
+            </div>  
+            
+            
+          </div>
+        </div>
+    <%else%>   
+    <div class="mandala-piece cannot-expand"> 
+      <%=m.four%>
+    </div>  
+    <%end%>  
+  <%end%>
+
+
+
+<div class="mandala-piece center">
+  <%=@post.theme%>
+</div>
+
+
+
+  <%if Post.find_by(theme:m.five,post_id:@post.id)%>
+    <%child=Post.find_by(theme:m.five,post_id:@post.id)%>
+    <%=link_to post_path(child.id),class:"mandala-piece aleady-expand" do%>
+    
+      <%=m.five%>
+    
+    <%end%>
+   
+  <%else%>
+    <%if current_user.id == @post.user_id%>
+        
+         <a class="js-modal-open mandala-piece to-expand" href="" data-target="modal5-<%=m.id%>"><%=m.five%></a>
+       
+        <div id="modal5-<%=m.id%>" class="modal js-modal">
+          <div class="modal__bg js-modal-close">
+          </div>
+          <div class="modal__content">
+            <div class="modal-header">
+              <a class="js-modal-close" href="">　<i class="fas fa-times"></i> </a>
+            </div>
+            <div class="modal__menu">
+              <p>このアイデアを拡張しますか？</p>
+            </div>
+            <div class="expanded">
+              <%=m.five%>
+            </div>
+            <div class="modal-btn-area">
+              <a class="js-modal-close close-btn" href="">close</a>
+              <%=link_to "EXPAND!",mandala_expand_path(@post.id,m.five),class:"expand-btn", method: :post %>
+            </div>  
+            
+            
+          </div>
+        </div>
+    <%else%>    
+    <div class="mandala-piece cannot-expand">
+      <%=m.five%>
+    </div>  
+    <%end%>  
+  <%end%>
+
+
+
+  <%if Post.find_by(theme:m.six,post_id:@post.id)%>
+    <%child=Post.find_by(theme:m.six,post_id:@post.id)%>
+    <%=link_to post_path(child.id),class:"mandala-piece aleady-expand" do%>
+      
+       <%=m.six%>
+      
+    <%end%>
+   
+  <%else%>
+    <%if current_user.id == @post.user_id%>
+        
+          <a class="js-modal-open mandala-piece to-expand" href="" data-target="modal6-<%=m.id%>"><%=m.six%></a>
+       
+        <div id="modal6-<%=m.id%>" class="modal js-modal">
+          <div class="modal__bg js-modal-close">
+          </div>
+          <div class="modal__content">
+            <div class="modal-header">
+              <a class="js-modal-close" href="">　<i class="fas fa-times"></i> </a>
+            </div>
+            <div class="modal__menu">
+              <p>このアイデアを拡張しますか？</p>
+            </div>
+            <div class="expanded">
+              <%=m.six%>
+            </div>
+            <div class="modal-btn-area">
+              <a class="js-modal-close close-btn" href="">close</a>
+              <%=link_to "EXPAND!",mandala_expand_path(@post.id,m.six),class:"expand-btn", method: :post %>
+            </div>  
+            
+            
+          </div>
+        </div>
+    <%else%>   
+    <div class="mandala-piece cannot-expand"> 
+      <%=m.six%>
+    </div>  
+    <%end%>  
+  <%end%>
+
+
+
+  <%if Post.find_by(theme:m.seven,post_id:@post.id)%>
+    <%child=Post.find_by(theme:m.seven,post_id:@post.id)%>
+    <%=link_to post_path(child.id),class:"mandala-piece aleady-expand" do%>
+    
+      <%=m.seven%>
+    
+    <%end%>
+   
+  <%else%>
+    <%if current_user.id == @post.user_id%>  
+        
+          <a class="js-modal-open mandala-piece to-expand" href="" data-target="modal7-<%=m.id%>"><%=m.seven%></a>
+        
+        <div id="modal7-<%=m.id%>" class="modal js-modal">
+          <div class="modal__bg js-modal-close">
+          </div>
+          <div class="modal__content">
+            <div class="modal-header">
+              <a class="js-modal-close" href="">　<i class="fas fa-times"></i> </a>
+            </div>
+            <div class="modal__menu">
+              <p>このアイデアを拡張しますか？</p>
+            </div>
+            <div class="expanded">
+              <%=m.seven%>
+            </div>
+            <div class="modal-btn-area">
+              <a class="js-modal-close close-btn" href="">close</a>
+              <%=link_to "EXPAND!",mandala_expand_path(@post.id,m.seven),class:"expand-btn", method: :post %>
+            </div>  
+            
+            
+          </div>
+        </div>
+    <%else%>    
+    <div class="mandala-piece cannot-expand">
+      <%=m.seven%>
+    </div>  
+    <%end%>  
+  <%end%>
+
+
+  <%if Post.find_by(theme:m.eight,post_id:@post.id)%>
+    <%child=Post.find_by(theme:m.eight,post_id:@post.id)%>
+    <%=link_to post_path(child.id),class:"mandala-piece aleady-expand" do%>
+    
+     <%=m.eight%>
+   
+    <%end%>
+    
+  <%else%>
+    <%if current_user.id == @post.user_id%>  
+         
+         <a class="js-modal-open mandala-piece to-expand" href="" data-target="modal8-<%=m.id%>"><%=m.eight%></a>
+         
+        <div id="modal8-<%=m.id%>" class="modal js-modal">
+          <div class="modal__bg js-modal-close">
+          </div>
+          <div class="modal__content">
+            <div class="modal-header">
+              <a class="js-modal-close" href="">　<i class="fas fa-times"></i> </a>
+            </div>
+            <div class="modal__menu">
+              <p>このアイデアを拡張しますか？</p>
+            </div>
+            <div class="expanded">
+              <%=m.eight%>
+            </div>
+            <div class="modal-btn-area">
+              <a class="js-modal-close close-btn" href="">close</a>
+              <%=link_to "EXPAND!",mandala_expand_path(@post.id,m.eight),class:"expand-btn", method: :post %>
+            </div>  
+            
+            
+          </div>
+        </div>
+    <%else%>  
+    <div class="mandala-piece cannot-expand">  
+      <%=m.eight%>
+    </div>  
+    <%end%>  
+  <%end%>
+
+
+
+
+
+
+</div>
+<div class="mandala-menu">
+  <div class="like" id="likes_buttons_<%= m.id %>">
+    <%= render partial: 'likes/like', locals: { mandala: m} %>
+  </div>
+  <div class="mandala-destroy">
+  <%if current_user.id===m.user_id%>
+  <a class="js-modal-open" href="" data-target="modal-destroy-<%=m.id%>"> <i class="fas fa-trash-alt">削除</i></a>
+  <%end%>
+                <div id="modal-destroy-<%=m.id%>" class="modal js-modal">
+                  <div class="modal__bg js-modal-close">
+                  </div>
+                 <div class="modal__content">
+                   <div class="modal-header">
+                     <a class="js-modal-close" href="">　<i class="fas fa-times"></i> </a>
+                   </div>
+                   <div class="modal__menu">
+                     <p>本当に削除してよいですか？</p>
+                   </div>
+                   <div class="expanded">
+                     すでに拡張されたデータは削除されません
+                   </div>
+                   <div class="modal-btn-area">
+                     <a class="js-modal-close close-btn" href="">close</a>
+                     <%=link_to "削除",mandala_destroy_path(m.id),class:"destroy-btn",method: :delete %>
+                   </div>  
+                 </div>  
+                </div>     
+  </div> 
+</div>
+ 
+</div>
+
+<%end%>
+</div>
+
+<div class="new-user-link">
+      <%=link_to posts_path,class:"back-to-index" do%>
+        <p><i class="fas fa-undo-alt"></i>一覧に戻る</p>
+      <%end%>
+  </div>
+</div>
+</div>
