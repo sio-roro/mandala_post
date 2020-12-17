@@ -62,6 +62,9 @@ gem 'devise-i18n-views'
 
 gem 'rails-i18n'
 
+gem 'hirb'
+gem 'hirb-unicode'
+
 group :production do
   gem 'pg'
 end
